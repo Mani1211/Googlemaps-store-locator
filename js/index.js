@@ -169,5 +169,16 @@
             }
           ]
           });
+          var markers;
+          marker =  new google.maps.Marker({
+                position: losAngeles,
+                map:map
+              });
         }
+
+        initMap();
+             
+  
+          
+        
          
