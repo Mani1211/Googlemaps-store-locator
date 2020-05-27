@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map{
+    width: 100%;
+    height: 100vh;
+}
+.title{
+    position: absolute;
+    z-index: 10;
+    top: 90px;
+    left: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 50px;
+    color: #fff;
+}
+.search-container{
+    width: 380px;
+    height: 60px;
+    background-color: #0008;
+    position: absolute;
+    z-index: 30;
+    top: 170px;
+    left: 60px;
+    border-radius: 30px;
+}
+
+.search{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.search input[type ="text"]{
+    width: 100%;
+    font-size: 25px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+.search .fa{
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+}
+
+.stores-list-container{
+    width: 380px;
+    border: 1px solid #fff;
+    background-color:#0008;
+    position: absolute;
+    bottom: 20px;
+    overflow-y:scroll;
+    z-index: 30;
+    top: 250px;
+    left: 60px;
+    border-radius: 25px;
+    padding: 0 0 10px;
+}
+
+.store-container{
+    padding:  20px 20px 0px;
+    border: 20px;
+    line-height: 1.7;
+    margin: 0 15px;
+    overflow: hidden;
+    color:white;
+    border-bottom: 2px solid #fff;
+  text-transform:capitalize;
+  font-weight: 600;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+.store-count{
+    position: relative;
+    left: 270px;
+    top: -40px;
+    border-radius:40px;
+    background-color: black;
+    width: 30px;
+    color: #fff;
+    text-align: center;
+    
+}
+
+.store-container .fa{
+    padding: 0 10px 0 0;
+    margin: 0;
+    font-size: 20px;
+    color: #E71C23;
+}
+
+.store-container .fa-phone{
+    color: #000;
+}
+.store-container:hover{
+    background-color: rgb(231, 201, 201);
+    color: black;
+    border-radius: 5px;
+    margin: 0;
+    font-weight: 500;
+}
+
+
+
