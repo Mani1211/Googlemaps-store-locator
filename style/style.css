@@ -17,10 +17,12 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 50px;
-    color: #fff;
+    color: #FF362E;
+
+
 }
 .search-container{
-    width: 380px;
+    width: 320px;
     height: 60px;
     background-color: #0008;
     position: absolute;
@@ -28,7 +30,9 @@ body {
     top: 170px;
     left: 60px;
     border-radius: 30px;
+
 }
+
 
 .search{
     height: 100%;
@@ -45,6 +49,7 @@ body {
     outline: none;
     background-color: transparent;
     color: #fff;
+    
 }
 
 .search .fa{
@@ -52,18 +57,48 @@ body {
     color: #fff;
     font-size: 20px;
 }
+.stores-list{
+height: 100%;
 
+overflow-y:scroll;
+overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 30px;
+    border-radius: 10px;
+
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fff; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e6d5d5; 
+  }
 .stores-list-container{
-    width: 380px;
+    width: 320px;
     border: 1px solid #fff;
     background-color:#0008;
+    overflow: hidden;
     position: absolute;
     bottom: 20px;
-    overflow-y:scroll;
     z-index: 30;
     top: 250px;
     left: 60px;
-    border-radius: 25px;
+    border-radius: 20px;
     padding: 0 0 10px;
 }
 
@@ -72,19 +107,19 @@ body {
     border: 20px;
     line-height: 1.7;
     margin: 0 15px;
-    overflow: hidden;
     color:white;
     border-bottom: 2px solid #fff;
   text-transform:capitalize;
   font-weight: 600;
+  font-size: 15px;
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
 }
 
 .store-count{
     position: relative;
-    left: 270px;
-    top: -40px;
+    left: 230px;
+    top: -53px;
     border-radius:40px;
     background-color: black;
     width: 30px;
@@ -92,7 +127,13 @@ body {
     text-align: center;
     
 }
-
+.store-address span{
+    display: block;
+}
+.store-address span:last-child{
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
 .store-container .fa{
     padding: 0 10px 0 0;
     margin: 0;
@@ -101,7 +142,7 @@ body {
 }
 
 .store-container .fa-phone{
-    color: #000;
+    color: #00CCCD;
 }
 .store-container:hover{
     background-color: rgb(231, 201, 201);
@@ -112,4 +153,51 @@ body {
 }
 
 
+
+.info-window{
+    position: absolute;
+    z-index: 30;
+    top: 500px;
+    left: 800px;
+    border: 1px solid black;
+}
+
+.store-info{
+    padding: 10px ;
+}
+
+.store-add,.store-num{
+    font-size: 18px;
+    font-weight: 100;
+    font-family: fantasy;
+    margin-bottom: 10px;
+}
+.store-add a{
+    text-decoration: none;
+    color: black;
+}
+.store-name{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color:#EA7773;
+    font-weight: 800;
+    text-align: center;
+    font-weight: bold;
+    font-family: monospace;
+    border-bottom: 1px solid black;
+}
+.store-name span{
+    display: block;
+    padding-bottom: 5px;
+    
+
+}
+.store-info i{
+    padding: 5px;
+    margin-right: 5px;
+    background-color:skyblue;
+    color: #fff;
+    font-size:22px;
+    border-radius: 100%;
+}
 
