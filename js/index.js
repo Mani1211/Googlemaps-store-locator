@@ -295,7 +295,7 @@
                 <span id='open'>${open}</span>
               </div>
               <div class="store-add">
-              <i class="fa fa-location-arrow" aria-hidden="true"></i> <a href="https://www.google.com/maps/dir/?api=1&origin=Los+Angeles&destination=${address}&travelmode=bicycling">${address}</a>
+              <i class="fa fa-location-arrow" aria-hidden="true"></i> <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Los+Angeles&destination=${address}&travelmode=bicycling">${address}</a>
               </div>
               <div class="store-num">
               <i class="fa fa-phone" aria-hidden="true"></i>${phoneNumber}
