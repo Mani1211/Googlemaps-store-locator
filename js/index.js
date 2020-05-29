@@ -177,11 +177,61 @@
           //       map:map
           //     });
              
-              displayStores();
-              showStoreMarkers();
+          //api();
+              infoWindow = new google.maps.InfoWindow();
+              searchStore()
+              
+              
+              
         }
 
-    function displayStores(){
+        function setOnClickeListener(){
+          var storeElements = document.querySelectorAll('.store-container')
+         console.log(storeElements)
+         storeElements.forEach((elem,index)=>{
+           elem.addEventListener('click',()=>{
+            google.maps.event.trigger(markers[index], 'click');
+           })
+         })
+        }
+
+
+        function searchStore(){
+          var foundStore=[];
+          var zipCode = document.getElementById('zip-code-input').value;
+          console.log(zipCode)
+          if(zipCode){
+            stores.forEach((store)=>{
+              var postal = store.address.postalCode.substring(0,5)
+              console.log(postal)
+              if(zipCode == postal){
+                foundStore.push(store)
+                
+              }
+              
+            })
+          }
+            else{
+
+              foundStore= stores;
+          }
+        clearLocations()
+          displayStores(foundStore)
+          showStoreMarkers(foundStore)
+          setOnClickeListener();
+          
+        }
+
+        function clearLocations() {
+          
+          for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+          }
+          markers.length = 0;
+ 
+        
+        }
+    function displayStores(stores){
       var storesHtml=""
       stores.forEach((store,index)=>{
         console.log(store)
@@ -189,6 +239,7 @@
         var phoneNumber =store.phoneNumber
         storesHtml += `
         <div class="store-container">
+        <div class="store-container-background>
             <div class="store-info-container">
                 <div class="store-address">
                    
@@ -205,14 +256,17 @@
             <div class="store-number-container">
                 <div class="store-count">${index + 1}</div>
             </div>
+            </div>
         </div> `
       })
 
       document.querySelector('.stores-list').innerHTML=storesHtml
+  
     }
              
+ 
   
-    function showStoreMarkers(){
+    function showStoreMarkers(stores){
       var bounds = new google.maps.LatLngBounds()
       stores.forEach((store,index)=>{
         var latlng = new google.maps.LatLng(
@@ -224,62 +278,65 @@
           var phoneNumber = store.phoneNumber;
           var open = store.openStatusText;
           bounds.extend(latlng)
-          createMarker(latlng,name,address,phoneNumber,open)
+          createMarker(latlng,name,address,phoneNumber,open,index)
       })
       map.fitBounds(bounds);
     }
         
-         
-    function createMarker(latlng, name, address,phoneNumber,open) {
-
-var contentString =` 
-<div id="content>
-<div class="info-window">
-    <div class="store-info">
-        <div class="store-name">
-          <span>${name}</span>
-          <span>${open}</span>
-        </div>
-        <div class="store-add">
-        <i class="fa fa-location-arrow" aria-hidden="true"></i> <a href="https://www.google.com/maps/dir/?api=1&origin=Los+Angeles&destination=${address}&travelmode=bicycling">${address}</a>
-        </div>
-        <div class="store-num">
-        <i class="fa fa-phone" aria-hidden="true"></i>${phoneNumber}
-        </div>
-    </div>
-    </div>
-</div> `
-
-var infoWindow = new google.maps.InfoWindow({
-  content:contentString
-});
-
-var iconBase =
-'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
 
 
-var icon = {
-  url: "ss.png", // url
-  scaledSize: new google.maps.Size(30, 30), // scaled size
-  origin: new google.maps.Point(0,0), // origin
-  anchor: new google.maps.Point(0, 0) // anchor
-};
+    function createMarker(latlng, name, address,phoneNumber,open,index) {
+      var html = ` 
+      <div id="content>
+      <div class="info-window">
+          <div class="store-info">
+          <dic class="store-name">
+                <span>${name}</span>
+                <span id='open'>${open}</span>
+              </div>
+              <div class="store-add">
+              <i class="fa fa-location-arrow" aria-hidden="true"></i> <a href="https://www.google.com/maps/dir/?api=1&origin=Los+Angeles&destination=${address}&travelmode=bicycling">${address}</a>
+              </div>
+              <div class="store-num">
+              <i class="fa fa-phone" aria-hidden="true"></i>${phoneNumber}
+              </div>
+          </div>
+          </div>
+      </div> `
 
+
+      var icon = {
+        url: "ss.png", // url
+        scaledSize: new google.maps.Size(30, 30), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+      };
+      
       var marker = new google.maps.Marker({
         map: map,
         position: latlng,
-        icon: icon
+        icon:icon,
+        label:`${index + 1}`
+
       });
       google.maps.event.addListener(marker, 'click', function() {
-        // infoWindow.setContent(html);
-         infoWindow.open(map,marker);
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
       });
-  
-      // google.maps.event.addListener(marker,'mouseout',()=>{
-      //         infoWindow.close()
-      //       });
-
-
-      
       markers.push(marker);
     }
+    // function api(){
+    //   var array=[]
+    //    var d=fetch("https://api.covid19api.com/summary")
+    //   .then(res => res.json())
+    //   .then(Countries=>{
+    //     console.log(Countries)
+    //       // array=data;
+    //       // array.forEach((d)=>{
+    //       //   console.log(d)
+    //       // })
+    //   })
+
+     
+     
+    //}

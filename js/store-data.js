@@ -1,4 +1,5 @@
-let stores = [{
+let stores = [
+    {
     "recommendation": {},
     "storeNumber": "5758-13907",
     "id": "15051",
@@ -124,7 +125,7 @@ let stores = [{
     },
     "regulations": [],
     "address": {
-        "streetAddressLine1": "6066 West Olympic Boulevard",
+        "streetAddressLine1": "6066 West Olympic",
         "streetAddressLine2": null,
         "streetAddressLine3": null,
         "city": "Los Angeles",
@@ -141,7 +142,7 @@ let stores = [{
     "ownershipTypeCode": "CO",
     "open": true,
     "openStatusText": "Open until 6:00 PM",
-    "addressLines": ["6066 West Olympic Boulevard", "Los Angeles, CA 90036"],
+    "addressLines": ["6066 West Olympic", "Los Angeles, CA 90036"],
     "mop": {
         "ready": false,
         "wait": null

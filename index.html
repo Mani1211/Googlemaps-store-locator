@@ -9,11 +9,16 @@
     <script src="js/store-data.js"></script>
 </head>
 <body>
-<div class="title">Store Locator</div>
+
+    
+<div class="logo">
+    <img src="starbucks-logo-png-transparent-0.png" alt="">
+</div>
+<!-- <div class="title">Store Locator</div> -->
 <div class="search-container">
     <div class="search">
-        <input type="text" placeholder="Enter Zip" name="" id="">
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <input id="zip-code-input" type="text" placeholder="Enter Zip" name="" id="">
+        <i class="fa fa-search" onClick='searchStore();' aria-hidden="true"></i>
     </div>
 </div>
 
